@@ -52,8 +52,7 @@ SELECT
         ','
     ) AS "keep_bib_locs",
     kbv.title AS "keep_bib_title",
-    kbrp.publish_year AS "keep_bib_yr",
-    'N' AS "merged"
+    kbrp.publish_year AS "keep_bib_yr"
 FROM rec_001s
 JOIN rec_019s ON rec_019s.record_019 = rec_001s.record_001
 JOIN r001s ON rec_019s.record_w_019 = r001s.rec_w_001
