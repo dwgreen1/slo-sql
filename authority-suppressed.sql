@@ -13,7 +13,7 @@ WHERE (a.code1 = 'a' OR a.code1 = 'q')
   AND subfield.tag = 'a';
 
 -- Authority records with a |z in the 010
--- Limited to NAME and SERIES
+-- Limited to SUBJECTS
 SET SEARCH_PATH TO sierra_view;
 SELECT subfield.content
 FROM varfield_view vv
