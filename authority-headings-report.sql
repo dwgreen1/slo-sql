@@ -29,4 +29,4 @@ SELECT CASE
        iii_user_name
 FROM catmaint
 WHERE condition_code_num NOT IN (1, 6, 7)
-ORDER BY condition_code_num, record_metadata_id;
+ORDER BY condition_code_num, index_tag, record_metadata_id;
