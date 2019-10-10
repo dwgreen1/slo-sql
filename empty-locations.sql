@@ -10,5 +10,6 @@ WHERE code NOT IN (
 AND code NOT LIKE 'y%'
 AND code NOT LIKE '9%'
 AND code NOT LIKE '%g'
+AND code != 'ua4hs'
 AND code != 'mail'
 ORDER BY 1 ASC;
