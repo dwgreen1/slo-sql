@@ -15,7 +15,7 @@
  issues with a too-big field at some point will be to create >n fields,
  each with <10K characters in them.
 */
-
+SELECT
 id2reckey(record_id),
 field_len,
 substring(field_content, 0,30)||'.......'
