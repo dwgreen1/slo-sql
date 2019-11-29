@@ -1,5 +1,4 @@
 SET TIMEZONE = 'America/New_York';
-
 SELECT (SELECT count(DISTINCT pr.id)
         FROM sierra_view.patron_record pr
                JOIN sierra_view.record_metadata rm on pr.id = rm.id
