@@ -12,10 +12,10 @@ WITH bad_bibs AS (
 		FROM sierra_view.bib_view bv
 		JOIN sierra_view.varfield vf ON bv.id = vf.record_id AND vf.marc_tag = '245'
 	)) EXCEPT ( -- Bibs must NOT meet the following criteria:
-		(	-- 1. No owp or elr bibs
+		(	-- 1. No owp or elr or odl bibs
 			SELECT brl.bib_record_id AS "bib_id"
 			FROM sierra_view.bib_record_location brl
-			WHERE ( brl.location_code LIKE '%wp' OR brl.location_code = 'elr' )
+			WHERE ( brl.location_code LIKE '%wp' OR brl.location_code = 'elr' OR brl.location_code = 'odl')
 		) UNION ( -- 2. No bibs with unsuppressed items
 			SELECT bv.id AS "bib_id"
 			FROM sierra_view.bib_view bv

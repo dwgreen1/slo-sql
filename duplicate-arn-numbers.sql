@@ -46,7 +46,7 @@ FROM dup_name AS d
                      || d.index_entry
          JOIN sierra_view.record_metadata AS r
               ON r.id = e.record_id
-                  AND r.record_type_code = 'a'
+                  AND r.record_type_code = 'd'
 ORDER BY 1, 3, 4;
 
 -- Duplicate ARN Numbers Pt. III
@@ -63,7 +63,7 @@ WITH dup_name
          WHERE  e.index_tag = 'z'
                 AND e.varfield_type_code = 'o'
                 -- CHANGE FOR NAME / SUBJECT / SERIES
-                AND a.code1 = 'a'
+                AND a.code1 = 'd'
          GROUP  BY a.code1,
                    e.index_tag,
                    e.index_entry
@@ -83,5 +83,5 @@ FROM   dup_name AS d
        JOIN sierra_view.authority_record a
          ON a.record_id = e.parent_record_id
 -- CHANGE FOR NAME / SUBJECT / SERIES
-WHERE  a.code1 = 'a'
+WHERE  a.code1 = 'd'
 ORDER  BY 1,3,4;
