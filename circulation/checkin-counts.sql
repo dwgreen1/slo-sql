@@ -1,4 +1,4 @@
-SELECT hrl.location_code,
+rSELECT hrl.location_code,
        COUNT(*)
 FROM sierra_view.holding_record_location hrl
 GROUP BY 1
