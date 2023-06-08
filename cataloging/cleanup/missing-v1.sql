@@ -44,5 +44,5 @@ HAVING
 --count(item_record_id) = count(CASE WHEN is_item_record_suppressed IS TRUE THEN 1 ELSE NULL END)
 --
 -- all attached items have a missing status ...
-count(item_record_id) = count(CASE WHEN item_status_code = 'm' THEN 1 ELSE NULL END)
+count(item_record_id) = count(CASE WHEN item_status_code = 'm' THEN 1 END)
 ORDER BY bib_record_last_update DESC;
