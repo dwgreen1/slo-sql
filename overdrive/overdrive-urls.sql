@@ -1,3 +1,4 @@
+SET STATEMENT_TIMEOUT TO 0;
 SELECT id2reckey(record_id), content
 FROM sierra_view.subfield_view
 WHERE tag = 'u'
