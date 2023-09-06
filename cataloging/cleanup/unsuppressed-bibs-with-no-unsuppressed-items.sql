@@ -48,4 +48,4 @@ SELECT id2reckey(bad_bibs.bib_id) || 'a' AS "bib record",
 FROM bad_bibs
 JOIN sierra_view.bib_view bib ON bib.id = bad_bibs.bib_id
 JOIN sierra_view.record_metadata md ON md.id = bad_bibs.bib_id
-ORDER BY bib_locs, 4, 2, 1
+ORDER BY bib_locs, 4, 2, 1;
