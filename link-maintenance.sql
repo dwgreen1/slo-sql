@@ -16,6 +16,7 @@ SELECT id2reckey(bv.id) AS "REC #",
                        FROM sierra_view.item_record ir
                                 JOIN sierra_view.bib_record_item_record_link bil
                                      ON ir.id = bil.item_record_id AND bv.id = bil.bib_record_id
+--                                      WHERE ir.location_code !~ 'multi'
                        ORDER BY 1
                    ),
                ','
@@ -26,6 +27,7 @@ SELECT id2reckey(bv.id) AS "REC #",
                        FROM sierra_view.holding_record_location hrl
                                 JOIN sierra_view.bib_record_holding_record_link bhl
                                      ON hrl.holding_record_id = bhl.holding_record_id AND bv.id = bhl.bib_record_id
+--                                      WHERE hrl.location_code !~ 'multi'
                        ORDER BY 1
                    ),
                ','

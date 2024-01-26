@@ -9,5 +9,4 @@ FROM sierra_view.item_record AS i
               ON barcode2.record_id = i.id
                   AND barcode2.varfield_type_code = 'b'
                   AND barcode2.occ_num > barcode1.occ_num
-WHERE i.location_code NOT ILIKE 'sls%'
 ORDER BY i.location_code;
