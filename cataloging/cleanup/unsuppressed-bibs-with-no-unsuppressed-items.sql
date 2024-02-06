@@ -1,3 +1,4 @@
+SET STATEMENT_TIMEOUT TO 0;
 WITH bad_bibs AS (
 	(( 	-- Bibs must satisfy the following conditions:
 		-- 1.  Not suppressed

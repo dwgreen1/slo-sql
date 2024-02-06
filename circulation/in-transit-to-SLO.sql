@@ -8,4 +8,5 @@ FROM sierra_view.item_record ir
               ON h.record_id = ir.record_id
 WHERE ir.item_status_code = 't'
   AND pickup_location_code IN ('slo', 'mail', 'sls', 'bwc')
+  AND h.placed_gmt < '2021-09-04'
 ORDER BY 5, 4 DESC, 1, 3 DESC;
