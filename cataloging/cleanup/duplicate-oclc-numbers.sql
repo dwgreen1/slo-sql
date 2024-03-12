@@ -5,4 +5,4 @@ SELECT	pe.index_entry AS "OCLC #",
 	WHERE index_tag = 'o'
 	GROUP BY index_entry
 	HAVING (COUNT(index_entry) > 1)
-	ORDER BY 2 DESC, 1 ASC;
+	ORDER BY 2 DESC, 1;

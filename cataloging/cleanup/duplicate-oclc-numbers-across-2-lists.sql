@@ -1,4 +1,4 @@
--- Duplciate OCLC across two lists
+-- Duplicate OCLC across two lists
 SELECT pe.index_entry
 FROM sierra_view.bool_set bs
          JOIN sierra_view.phrase_entry pe ON pe.record_id = bs.record_metadata_id
