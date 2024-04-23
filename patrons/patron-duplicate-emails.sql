@@ -11,7 +11,6 @@ WHERE sv.field_content IN (
   SELECT sv.field_content
   FROM sierra_view.varfield sv
   WHERE sv.varfield_type_code = 'z'
-    AND sv.field_content NOT LIKE '%library%'
   GROUP BY sv.field_content
   HAVING (COUNT(sv.field_content) > 1))
   ORDER BY 2, 3, 4;
