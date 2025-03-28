@@ -6,5 +6,5 @@ SELECT	pe.index_entry AS "OCLC #"
 	AND index_entry is not null
 	AND index_entry != ''
 	GROUP BY index_entry
-	HAVING (COUNT(index_entry) > 1)
+	HAVING (COUNT(index_entry) = 3)
 	ORDER BY 1::numeric;
