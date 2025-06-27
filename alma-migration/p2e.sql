@@ -1,11 +1,25 @@
 SET STATEMENT_TIMEOUT TO 0;
-SELECT id2reckey(sierra_view.varfield.record_id)
-FROM sierra_view.varfield
-  JOIN sierra_view.bib_record
-    ON sierra_view.bib_record.id = sierra_view.varfield.record_id
-  JOIN sierra_view.bib_record_location
-    ON sierra_view.bib_record_location.bib_record_id = sierra_view.varfield.record_id
-WHERE sierra_view.bib_record_location.location_code IN ('swp', 'fwp', 'elr', 'odl')
-  AND sierra_view.varfield.marc_tag = '856'
-  AND sierra_view.varfield.marc_ind1 = '4'
-  AND sierra_view.varfield.marc_ind2 = '0';
+
+-- Electronic Location Codes
+SELECT DISTINCT id2reckey(vf.record_id)
+FROM sierra_view.varfield vf
+JOIN sierra_view.bib_record br
+  ON br.id = vf.record_id
+JOIN sierra_view.bib_record_location brl
+  ON brl.bib_record_id = vf.record_id
+WHERE brl.location_code IN ('swp', 'fwp', 'elr')
+  AND vf.marc_tag = '856'
+  AND vf.marc_ind1 = '4'
+  AND vf.marc_ind2 = '0'
+
+UNION
+
+-- All Ohio Memory URLs
+SELECT DISTINCT id2reckey(vf.record_id)
+FROM sierra_view.varfield vf
+JOIN sierra_view.bib_record br
+  ON br.id = vf.record_id
+WHERE vf.marc_tag = '856'
+  AND vf.marc_ind1 = '4'
+  AND vf.marc_ind2 = '0'
+  AND vf.field_content ILIKE '%ohiomemory%';
